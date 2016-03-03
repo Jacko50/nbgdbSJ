@@ -16,7 +16,6 @@ public class PlsqlConnector {
 		} catch (ClassNotFoundException e) {
 			System.out.println("Where is your Oracle JDBC Driver?");
 			e.printStackTrace();
-			return;
 		}
 		System.out.println("Oracle JDBC Driver Registered!");
 	}
@@ -30,14 +29,14 @@ public class PlsqlConnector {
 		try {
 			connection = DriverManager.getConnection(URL, USR, PWD);
 		} catch (SQLException e) {
-			System.out.println("Connection Failed! Check output console");
-			e.printStackTrace();
+		//	System.out.println("Connection Failed! Check output console");
+		//	e.printStackTrace();
 		}
 
 		if (connection != null) {
-	//		System.out.println("You made it, take control of your database now!");
+		//	System.out.println("You made it, take control of your database now!");
 		} else {
-			System.out.println("Failed to make connection!");
+		//	System.out.println("Failed to make connection!");
 		}
 		return connection;
 	}
@@ -47,7 +46,7 @@ public class PlsqlConnector {
 	//	Connection connection = null;
 		try {
 			connection.close();
-	//		System.out.println("Connection dropped successfully");
+		//	System.out.println("Connection dropped successfully");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Inventory {
 
 	static Scanner in = new Scanner(System.in);
+	InventoryMethods inventorymethods = new InventoryMethods();
 
 	public void inventoryManager(String USR) {
 		
@@ -20,7 +21,7 @@ public class Inventory {
 					+ "1. Create a purchase order \n"
 					+ "2. Identify low stock \n"
 					+ "3. Check individual stock level \n"
-					+ "4. Add product to catelogue"
+					+ "4. Add product to catelogue \n"
 					+ "5. Logout ");
 
 
@@ -37,12 +38,12 @@ public class Inventory {
 				break;
 
 			case "3":
-				System.out.println("Which product would you like to check?");
+				inventorymethods.checkStock();
 				running = general.contin();
 				break;
 				
 			case "4":
-				System.out.println("Add Product:");
+				System.out.println("Add Product to catelogue");
 				running = general.contin();
 				break;
 
@@ -50,7 +51,8 @@ public class Inventory {
 				return;
 				
 			default:
-				return;
+				System.out.println("Invalid option");
+				running = general.contin();
 
 			}
 		}

@@ -24,14 +24,18 @@ public class DatabaseFace {
 		PWD = in.nextLine();
 		PlsqlConnector plsqlConnector = new PlsqlConnector();
 
-		String dptid = "N/A";
-		String usrname = "N/A";
+		String dptid = "none";
+		String usrname = "none";
 		ResultSet rs = null;
 		Connection conn = null;
 		Statement stmt = null;
 
 
 		conn = plsqlConnector.oracleDbConnect(USR, PWD);
+		if (conn == null) {
+			System.out.println("Invalid username/password \n");
+			return general.logout();
+		}
 	//	System.out.println("Successful Login");
 
 		try {
